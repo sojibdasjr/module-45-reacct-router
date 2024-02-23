@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SinglePost = ({ post }) => {
-  console.log(post);
+  const navigator = useNavigate();
+  const handleShow = () => {
+    navigator(`/post/${id}`);
+  };
   const { userId, id, title } = post;
   return (
     <div style={{ border: "2px solid green", margin: "5px", padding: "5px" }}>
@@ -12,6 +15,7 @@ const SinglePost = ({ post }) => {
           SEE MORE
         </button>
       </Link>
+      <button onClick={handleShow}>Show Details </button>
     </div>
   );
 };
